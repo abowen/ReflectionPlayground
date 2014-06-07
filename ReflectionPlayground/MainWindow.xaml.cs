@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ReflectionPlayground
 {
@@ -29,10 +20,34 @@ namespace ReflectionPlayground
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            var path = Directory.GetCurrentDirectory();
-            var assemblies = Directory.GetFiles(path, "*.dll").Select(Assembly.LoadFile);
-            var assembliesOutput = string.Join("\r\n", assemblies);
-            AssemblyTextBox.Text = assembliesOutput;
+            using (new MyTimer(PerformanceTextBlock))
+            {
+                var path = Directory.GetCurrentDirectory();
+                var assemblies = Directory.GetFiles(path, "*.dll").Select(Assembly.LoadFile);
+                var assembliesOutput = string.Join("\r\n", assemblies);
+                OutputTextBox.Text = assembliesOutput;
+            }
+        }
+    }
+
+    public class MyTimer : IDisposable
+    {
+        private readonly TextBlock _textBlock;
+        private Stopwatch _stopwatch;
+
+        public MyTimer(TextBlock textBlock)
+        {
+            _textBlock = textBlock;
+            _stopwatch = Stopwatch.StartNew();
+        }
+
+        public void Dispose()
+        {
+            if (_stopwatch == null) return;
+
+            _stopwatch.Stop();
+            _textBlock.Text = string.Format("{0}ms", _stopwatch.ElapsedMilliseconds);
+            _stopwatch = null;
         }
     }
 }
