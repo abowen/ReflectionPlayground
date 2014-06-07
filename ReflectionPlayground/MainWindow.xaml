@@ -29,15 +29,20 @@
             <Button Content="Load Assemblies" Click="LoadAssemblies_OnClick"></Button>
             <Button Content="List.Add using Instance" Click="ListAdd_OnClick"></Button>
             <Button Content="List.Add using Reflection" Click="ListAddReflection_OnClick"></Button>
+            <Button Content="Load Repositories" Click="LoadRepositories_OnClick"></Button>
+            <Button Content="Change Repository" Click="ChangeRepository_OnClick"></Button>
+            <Button Content="Repository - Get All" Click="RepositoryGetAll_OnClick"></Button>
         </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Performance"></TextBlock>
                 <TextBlock x:Name="PerformanceTextBlock"></TextBlock>
+                <TextBlock Text="Loaded"></TextBlock>
+                <TextBlock x:Name="LoadedTextBlock"></TextBlock>
             </StackPanel>
             <TextBox x:Name="OutputTextBox" Grid.Row="1" ></TextBox>
         </Grid>
