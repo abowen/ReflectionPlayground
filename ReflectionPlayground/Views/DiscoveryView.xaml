@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <TextBlock Text="Order"></TextBlock>
+            <TextBlock Text="Order" FontWeight="Bold"></TextBlock>
             <TextBlock Text="Customer"></TextBlock>
             <ComboBox ItemsSource="{Binding People}" 
                           SelectedItem="{Binding Order.Customer, Mode=TwoWay}"></ComboBox>
@@ -22,11 +22,15 @@
             <ComboBox ItemsSource="{Binding Products}"
                           SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"></ComboBox>
             <Button Content="Add" Click="AddProduct_OnClick"></Button>
-
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <TextBlock Text="Cart"></TextBlock>
-            <ListBox ItemsSource="{Binding Order.OrderItems}"></ListBox>
+            <TextBlock Text=" " ></TextBlock>
+            <TextBlock Text="Cart" ></TextBlock>
+            <ListBox ItemsSource="{Binding Order.OrderItems}" Height="300"></ListBox>
+            <TextBlock Text="Discount"></TextBlock>
+            <TextBox Text="{Binding Order.OrderDiscount, Mode=TwoWay, StringFormat=' {0}%'}"></TextBox>
+            <TextBlock Text="Total"></TextBlock>
+            <TextBlock Text="{Binding Order.TotalPrice, StringFormat=' {0:C}'}"></TextBlock>
         </StackPanel>
     </Grid>
 

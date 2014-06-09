@@ -65,15 +65,14 @@ namespace ReflectionPlayground.Views
             var orderItem = Order.OrderItems.FirstOrDefault(oi => oi.ProductItem == SelectedProduct);            
             if (orderItem == null)
             {
-                orderItem = new OrderItem { ProductItem = SelectedProduct, Quantity = 1};
-                Order.OrderItems.Add(orderItem);
+                orderItem = new OrderItem { ProductItem = SelectedProduct, Quantity = 1};                
             }
             else
             {
                 orderItem.Quantity++;
-                Order.OrderItems.Remove(orderItem);
-                Order.OrderItems.Add(orderItem);    
-            }            
+                Order.OrderItems.Remove(orderItem);                
+            }
+            Order.OrderItems.Add(orderItem);    
         }
 
 
