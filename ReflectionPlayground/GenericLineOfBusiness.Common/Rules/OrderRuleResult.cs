@@ -1,5 +1,5 @@
 ﻿
-namespace GenericLineOfBusiness.Common.Entities
+namespace GenericLineOfBusiness.Common.Rules
 {
     public class OrderRuleResult
     {
