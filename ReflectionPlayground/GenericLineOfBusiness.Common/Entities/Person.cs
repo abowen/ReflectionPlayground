@@ -9,7 +9,7 @@
 
         public override string ToString()
         {
-            return string.Format("{0,-10} {1,-10}", FirstName, LastName);
+            return string.Format("{0,-10} {1,-10} {2,3}", FirstName, LastName, Age);
         }
     }
 }

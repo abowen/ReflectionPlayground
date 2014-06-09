@@ -9,6 +9,11 @@
              d:DesignHeight="600" >
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -23,15 +28,27 @@
                           SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"></ComboBox>
             <Button Content="Add" Click="AddProduct_OnClick"></Button>
         </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical">
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
             <TextBlock Text=" " ></TextBlock>
             <TextBlock Text="Cart" ></TextBlock>
-            <ListBox ItemsSource="{Binding Order.OrderItems}" Height="300"></ListBox>
+            <ListBox ItemsSource="{Binding Order.OrderItems}" Height="100"></ListBox>
             <TextBlock Text="Discount"></TextBlock>
             <TextBox Text="{Binding Order.OrderDiscount, Mode=TwoWay, StringFormat=' {0}%'}"></TextBox>
             <TextBlock Text="Total"></TextBlock>
             <TextBlock Text="{Binding Order.TotalPrice, StringFormat=' {0:C}'}"></TextBlock>
         </StackPanel>
-    </Grid>
 
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Background="WhiteSmoke">
+            <TextBlock Text="Dynamic Rules Checker" FontWeight="Bold"></TextBlock>
+            <Button Content="Validate" Click="ValidateOrder_OnClick"></Button>
+            <ListBox ItemsSource="{Binding Rules}"></ListBox>            
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Background="WhiteSmoke">
+            <TextBlock Text=" "></TextBlock>
+            <TextBlock Text="Validation Output"></TextBlock>
+            <TextBlock Text="{Binding RulesResult}"></TextBlock>
+            <ListBox ItemsSource="{Binding BrokenRules}"></ListBox>
+        </StackPanel>
+    </Grid>
 </UserControl>

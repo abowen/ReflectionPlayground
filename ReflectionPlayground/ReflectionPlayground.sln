@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericLineOfBusiness.Repos
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{BFE11CE6-4FBC-4F66-B0D5-80D712291578}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rules", "Rules", "{57FB561E-4C4A-4C62-A50B-78D98809E440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericLineOfBusiness.RulesForPeople", "GenericLineOfBusiness.RulesForPeople\GenericLineOfBusiness.RulesForPeople.csproj", "{05B9886E-BA31-467C-8116-83077E3E7AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericLineOfBusiness.RulesForOrder", "GenericLineOfBusiness.RulesForOrder\GenericLineOfBusiness.RulesForOrder.csproj", "{B6B95FF2-B594-4CBB-AC9E-7BC478494D29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +41,14 @@ Global
 		{78E99E07-C50F-40B9-95E3-8AC1C7C42CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78E99E07-C50F-40B9-95E3-8AC1C7C42CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78E99E07-C50F-40B9-95E3-8AC1C7C42CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B9886E-BA31-467C-8116-83077E3E7AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B9886E-BA31-467C-8116-83077E3E7AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B9886E-BA31-467C-8116-83077E3E7AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B9886E-BA31-467C-8116-83077E3E7AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B95FF2-B594-4CBB-AC9E-7BC478494D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B95FF2-B594-4CBB-AC9E-7BC478494D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B95FF2-B594-4CBB-AC9E-7BC478494D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B95FF2-B594-4CBB-AC9E-7BC478494D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +57,7 @@ Global
 		{28DCCB4A-2C6D-4495-8870-4117B688B396} = {BFE11CE6-4FBC-4F66-B0D5-80D712291578}
 		{F51F6040-9987-4BD3-9855-E3E1FDB55141} = {BFE11CE6-4FBC-4F66-B0D5-80D712291578}
 		{78E99E07-C50F-40B9-95E3-8AC1C7C42CE3} = {BFE11CE6-4FBC-4F66-B0D5-80D712291578}
+		{05B9886E-BA31-467C-8116-83077E3E7AFE} = {57FB561E-4C4A-4C62-A50B-78D98809E440}
+		{B6B95FF2-B594-4CBB-AC9E-7BC478494D29} = {57FB561E-4C4A-4C62-A50B-78D98809E440}
 	EndGlobalSection
 EndGlobal

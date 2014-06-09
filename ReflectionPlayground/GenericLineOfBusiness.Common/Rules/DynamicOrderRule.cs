@@ -15,5 +15,10 @@ namespace GenericLineOfBusiness.Common.Rules
             TypeName = typeName;
             AssemblyName = assemblyName;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", OrderRule.RuleName, AssemblyName);
+        }
     }
 }

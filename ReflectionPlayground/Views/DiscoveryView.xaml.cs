@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using GenericLineOfBusiness.Common.Entities;
 using GenericLineOfBusiness.Common.Interfaces;
+using GenericLineOfBusiness.Common.Rules;
 using ReflectionPlayground.Annotations;
 
 namespace ReflectionPlayground.Views
@@ -26,9 +27,11 @@ namespace ReflectionPlayground.Views
             var productRepository = GetProductRepository();
             Products = productRepository.GetAll().ToArray();
 
-            Order = new Order();
+            _checker = new OrderRuleChecker(@".\");
+            Rules = _checker.Rules;
         }
 
+        private OrderRuleChecker _checker;
 
         private IEnumerable<Person> _people;
         public IEnumerable<Person> People
@@ -43,9 +46,30 @@ namespace ReflectionPlayground.Views
             get { return _products; }
             set { _products = value; OnPropertyChanged(); }
         }
-        
 
-        private Order _order;
+        private IEnumerable<DynamicOrderRule> _rules;
+        public IEnumerable<DynamicOrderRule> Rules
+        {
+            get { return _rules; }
+            set { _rules = value; OnPropertyChanged(); }
+        }
+
+        private IEnumerable<string> _brokenRules;
+        public IEnumerable<string> BrokenRules
+        {
+            get { return _brokenRules; }
+            set { _brokenRules = value; OnPropertyChanged(); }
+        }
+
+        private string _rulesResult;
+        public string RulesResult
+        {
+            get { return _rulesResult; }
+            set { _rulesResult = value; OnPropertyChanged(); }
+        }
+
+        
+        private Order _order = new Order();
         public Order Order
         {
             get { return _order; }
@@ -75,6 +99,12 @@ namespace ReflectionPlayground.Views
             Order.OrderItems.Add(orderItem);    
         }
 
+        private void ValidateOrder_OnClick(object sender, RoutedEventArgs e)
+        {
+            var result = _checker.CheckRules(Order);
+            RulesResult = result ? "Success" : "Fail";
+            BrokenRules = _checker.BrokenRules.Select(r => r.Message);
+        }
 
         public static IPersonRepository GetPersonRepository()
         {
@@ -92,7 +122,7 @@ namespace ReflectionPlayground.Views
             var repoInstance = Activator.CreateInstance(repoType);
             var repo = repoInstance as IProductRepository;
             return repo;
-        }
+        }        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

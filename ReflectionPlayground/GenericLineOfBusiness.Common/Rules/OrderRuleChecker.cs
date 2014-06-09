@@ -5,18 +5,18 @@ namespace GenericLineOfBusiness.Common.Rules
 {
     public class OrderRuleChecker
     {
-        private List<DynamicOrderRule> orderRules;
+        public List<DynamicOrderRule> Rules { get; private set; }
         public List<DynamicOrderRule> BrokenRules { get; private set; }
 
         public OrderRuleChecker(string rulePath)
         {
-            orderRules = DynamicOrderRuleLoader.LoadRules(rulePath);
+            Rules = DynamicOrderRuleLoader.LoadRules(rulePath);
         }
 
         public bool CheckRules(Order order)
         {
             BrokenRules = new List<DynamicOrderRule>();
-            foreach (var rule in orderRules)
+            foreach (var rule in Rules)
             {
                 var result = rule.OrderRule.CheckRule(order);
                 if (!result.Result)

@@ -141,6 +141,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)\SharedFiles\*.dll" "$(TargetDir)" /Y
+xcopy "$(ProjectDir)\SharedRules\*.dll" "$(TargetDir)" /Y
 
 </PostBuildEvent>
   </PropertyGroup>
