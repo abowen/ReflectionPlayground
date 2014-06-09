@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using GenericLineOfBusiness.Common.Interfaces;
 
-namespace ReflectionPlayground
+namespace ReflectionPlayground.Views
 {
     /// <summary>
     /// Interaction logic for RepositoryView.xaml

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CsvHelper;
@@ -8,11 +7,11 @@ using GenericLineOfBusiness.Common.Interfaces;
 
 namespace GenericLineOfBusiness.RepositoryCsv
 {
-    public class PersonRepository : IPersonRepository
+    public class ProductRepository : IProductRepository
     {
         // http://joshclose.github.io/CsvHelper/
 
-        private static string csvFileName = @".\Person.csv";
+        private static string csvFileName = @".\Product.csv";
         
         private static CsvReader GetCsvReader()
         {            
@@ -27,8 +26,8 @@ namespace GenericLineOfBusiness.RepositoryCsv
             var csvWriter = new CsvWriter(textWriter);
             return csvWriter;
         }
-        
-        public void Add(Person entity)
+
+        public void Add(Product entity)
         {
             if (entity == null) return;
 
@@ -41,18 +40,18 @@ namespace GenericLineOfBusiness.RepositoryCsv
 #pragma warning restore 618
         }
 
-        public IEnumerable<Person> GetAll()
+        public IEnumerable<Product> GetAll()
         {
             var csvReader = GetCsvReader();
-            return csvReader.GetRecords<Person>();
+            return csvReader.GetRecords<Product>();
         }
 
-        public Person Get(int id)
+        public Product Get(int id)
         {
             return GetAll().FirstOrDefault(p => p.Id == id);
         }
 
-        public void Update(Person entity)
+        public void Update(Product entity)
         {
             if (entity == null) return;
 
@@ -63,7 +62,7 @@ namespace GenericLineOfBusiness.RepositoryCsv
             Add(entity);
         }
 
-        public void Delete(Person entity)
+        public void Delete(Product entity)
         {
             if (entity == null) return;
 

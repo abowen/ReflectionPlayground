@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using ReflectionPlayground.Utilities;
 
-namespace ReflectionPlayground
+namespace ReflectionPlayground.Views
 {
     /// <summary>
     /// Interaction logic for PerformanceView.xaml

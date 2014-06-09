@@ -1,19 +1,19 @@
-﻿<UserControl x:Class="ReflectionPlayground.RepositoryView"
+﻿<UserControl x:Class="ReflectionPlayground.Views.PerformanceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="800" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical">
-            <Button Content="Load Repositories" Click="LoadRepositories_OnClick"></Button>
-            <Button Content="Change Repository" Click="ChangeRepository_OnClick"></Button>
-            <Button Content="Repository - Get All" Click="RepositoryGetAll_OnClick"></Button>
+            <Button Content="Load Assemblies" Click="LoadAssemblies_OnClick"></Button>
+            <Button Content="List.Add using Instance" Click="ListAdd_OnClick"></Button>
+            <Button Content="List.Add using Reflection" Click="ListAddReflection_OnClick"></Button>
         </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -21,8 +21,8 @@
                 <RowDefinition Height="5*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Loaded"></TextBlock>
-                <TextBlock x:Name="LoadedTextBlock"></TextBlock>
+                <TextBlock Text="Performance"></TextBlock>
+                <TextBlock x:Name="PerformanceTextBlock"></TextBlock>
             </StackPanel>
             <TextBox x:Name="OutputTextBox" Grid.Row="1" ></TextBox>
         </Grid>

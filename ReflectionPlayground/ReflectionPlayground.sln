@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericLineOfBusiness.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericLineOfBusiness.RepositoryMemory", "GenericLineOfBusiness.RepositoryMemory\GenericLineOfBusiness.RepositoryMemory.csproj", "{78E99E07-C50F-40B9-95E3-8AC1C7C42CE3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUD", "CRUD", "{BFE11CE6-4FBC-4F66-B0D5-80D712291578}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{BFE11CE6-4FBC-4F66-B0D5-80D712291578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
